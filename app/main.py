@@ -8,14 +8,11 @@ class Person:
 
 
 def create_person_list(people: list) -> list:
-    persons = []
+    persons = [
+        Person(person_data["name"], person_data["age"])
+        for person_data in people
+    ]
 
-    # створюємо всіх Person
-    for person_data in people:
-        person = Person(person_data["name"], person_data["age"])
-        persons.append(person)
-
-    # додаємо зв’язки wife / husband
     for person_data in people:
         current_person = Person.people[person_data["name"]]
 
